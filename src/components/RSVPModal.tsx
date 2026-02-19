@@ -20,6 +20,7 @@ export default function RSVPModal({ eventTitle, eventId, onClose }: RSVPModalPro
 
     const formData = new FormData(event.currentTarget);
     formData.append('eventId', eventId);
+    formData.append('eventTitle', eventTitle);
 
     try {
       const response = await submitRSVP(formData);
