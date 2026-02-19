@@ -48,7 +48,8 @@ export default function EventCard({ event }: { event: EventProps }) {
       {isModalOpen && (
         <RSVPModal 
           eventTitle={event.title} 
-          eventId={event.id} 
+          eventId={event.id}
+          eventDate={event.date}
           onClose={() => setIsModalOpen(false)} 
         />
       )}

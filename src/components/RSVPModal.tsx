@@ -7,10 +7,11 @@ import { submitRSVP } from '@/app/actions';
 interface RSVPModalProps {
   eventTitle: string;
   eventId: string;
+  eventDate: string;
   onClose: () => void;
 }
 
-export default function RSVPModal({ eventTitle, eventId, onClose }: RSVPModalProps) {
+export default function RSVPModal({ eventTitle, eventId, eventDate, onClose }: RSVPModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -21,6 +22,7 @@ export default function RSVPModal({ eventTitle, eventId, onClose }: RSVPModalPro
     const formData = new FormData(event.currentTarget);
     formData.append('eventId', eventId);
     formData.append('eventTitle', eventTitle);
+    formData.append('eventDate', eventDate);
 
     try {
       const response = await submitRSVP(formData);
