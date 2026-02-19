@@ -2,6 +2,7 @@
 
 import { Resend } from 'resend';
 
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function submitRSVP(formData: FormData) {
@@ -11,6 +12,8 @@ export async function submitRSVP(formData: FormData) {
   const eventDateString = formData.get('eventDate') as string;
 
   try {
+
+  
     const { data, error } = await resend.emails.send({
       from: 'Events Team <onboarding@resend.dev>', 
       to: email, 
@@ -18,8 +21,14 @@ export async function submitRSVP(formData: FormData) {
       html: `
         <h2>Hey ${name}!</h2>
         <p>Your RSVP for ${eventTitle} is confirmed.</p>
-        <p>We'll see you there.</p>
-      `,
+        <p>We'll see you there.</p>`,
+      attachments: [
+        {
+          path: 'https://res.cloudinary.com/dqao0voyr/image/upload/v1771532897/ticket.jpg',
+          filename: 'ticket.jpg',
+      
+        },
+      ],
     });
 
     const eventDate = new Date(eventDateString);
