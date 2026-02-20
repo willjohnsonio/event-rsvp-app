@@ -28,7 +28,7 @@ npm install
 ```
 ### Environment Variables 
 
-Create an `.env.local` file in the root of the project and add your [Resend API Key](https://resend.com/docs/dashboard/api-keys/introduction) that you can get from the Resend Dashboard(https://resend.com/api-keys
+Create an `.env.local` file in the root of the project and add your [Resend API Key](https://resend.com/docs/dashboard/api-keys/introduction) that you can get from the [Resend Dashboard](https://resend.com/api-keys)
 
 ```bash
 RESEND_API_KEY=re_XXXXXXXX
