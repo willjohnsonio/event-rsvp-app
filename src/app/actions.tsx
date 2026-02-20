@@ -1,6 +1,7 @@
 'use server';
 
 import { Resend } from 'resend';
+import { v4 as uuidv4 } from 'uuid';
 
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -26,9 +27,11 @@ export async function submitRSVP(formData: FormData) {
         {
           path: 'https://res.cloudinary.com/dqao0voyr/image/upload/v1771532897/ticket.jpg',
           filename: 'ticket.jpg',
-      
         },
       ],
+        headers: {
+    'X-Entity-Ref-ID': uuidv4(),
+  },
     });
 
     const eventDate = new Date(eventDateString);
@@ -41,7 +44,10 @@ export async function submitRSVP(formData: FormData) {
         to: email, 
         subject: `Reminder: ${eventTitle} is tomorrow!`,
         html: `<p>Hey ${name}, we kick off in tomorrow. See you there!</p>`,
-        scheduledAt: reminderDate.toISOString(), 
+        scheduledAt: reminderDate.toISOString(),
+        headers: {
+    'X-Entity-Ref-ID': uuidv4(),
+  }
       });
       console.log(`Reminder scheduled! ID: ${reminder.data?.id}`);
     } 
