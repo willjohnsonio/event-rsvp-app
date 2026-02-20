@@ -34,6 +34,6 @@ Create an `.env.local` file in the root of the project and add your [Resend API 
 RESEND_API_KEY=re_XXXXXXXX
 ```
 
-### 3. Run Development Server
+### Run Development Server
 
 Open `http://localhost:3000` in your browswer to see the application. Click on an event and fill out the form and submit to trigger a tranactional email confimed the RSVP
