@@ -16,7 +16,7 @@ export async function submitRSVP(formData: FormData) {
 
   
     const { data, error } = await resend.emails.send({
-      from: 'Events Team <onboarding@resend.dev>', 
+      from: 'Events Team <events@updates.willjohnsontesting.com>', 
       to: email, 
       subject: 'You are registered!',
       html: `
@@ -40,7 +40,7 @@ export async function submitRSVP(formData: FormData) {
     
     if (reminderDate > new Date()) {
       const reminder = await resend.emails.send({
-        from: 'Events Team <onboarding@resend.dev>', 
+        from: 'Events Team <events@updates.willjohnsontesting.com>', 
         to: email, 
         subject: `Reminder: ${eventTitle} is tomorrow!`,
         html: `<p>Hey ${name}, we kick off in tomorrow. See you there!</p>`,

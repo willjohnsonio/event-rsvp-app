@@ -68,7 +68,7 @@ export default function RSVPModal({ eventTitle, eventId, eventDate, onClose }: R
               
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="group">
-                  <label htmlFor="name" className="block text-xs font-bold text-slate-500 mb-3 uppercase tracking-[0.2em] group-focus-within:text-blue-500 transition-colors">Full Name</label>
+                  <label htmlFor="name" className="block text-xs font-bold text-slate-500 mb-3 uppercase tracking-[0.2em] group-focus-within:text-blue-500 transition-colors">First Name</label>
                   <input
                     type="text"
                     id="name"
